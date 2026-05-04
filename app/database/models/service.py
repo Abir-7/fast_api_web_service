@@ -1,11 +1,12 @@
 from __future__ import annotations
 import enum
 import uuid
-from typing import Optional, TYPE_CHECKING
+from typing import List, Optional, TYPE_CHECKING
 from sqlalchemy import String, Enum, ForeignKey, Numeric
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
 from app.database.models.base import BaseModel
+from app.database.models.booking_request import BookingRequest
 
 if TYPE_CHECKING:
     from app.database.models.actor import Actor
@@ -43,6 +44,10 @@ class Service(BaseModel):
     )
 
     created_by: Mapped[Actor] = relationship("Actor")
+
+    booking_requests: Mapped[List["BookingRequest"]] = relationship(
+    "BookingRequest", back_populates="service"
+)
 
     def __repr__(self) -> str:
         return f"<Service(id={self.id}, type={self.service_type}, price={self.price})>"

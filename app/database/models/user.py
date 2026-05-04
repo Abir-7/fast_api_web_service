@@ -6,7 +6,9 @@ from typing import Optional, List, TYPE_CHECKING
 from sqlalchemy import String, Boolean, Enum, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID
+from app.database.models.availability import Availability
 from app.database.models.base import BaseModel
+from app.database.models.booking_assign import BookingAssign
 
 if TYPE_CHECKING:
     from app.database.models.user_profile import UserProfile
@@ -54,6 +56,15 @@ class User(BaseModel):
         "Actor",
         back_populates="user"
     )
+    availabilities: Mapped[List["Availability"]] = relationship(
+    "Availability",
+    back_populates="user",
+    cascade="all, delete-orphan",
+)
+
+    booking_assigns: Mapped[List["BookingAssign"]] = relationship(
+    "BookingAssign", back_populates="user"
+)
 
     def __repr__(self) -> str:
         return f"<User(id={self.id}, email={self.email}, role={self.role})>"
