@@ -1,0 +1,997 @@
+{
+  "info": {
+    "_postman_id": "ca3fcf3b-55c0-40b2-b523-03a3099619f6",
+    "name": "fast-api-basic",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30209339",
+    "_collection_link": "https://go.postman.co/collection/30209339-ca3fcf3b-55c0-40b2-b523-03a3099619f6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "user-signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"dev.abir.027@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"full_name\": \"John Doe\",\r\n    \"bio\": \"Software developer\",\r\n    \"avatar_url\": \"https://example.com/avatar.jpg\",\r\n    \"role\": \"customer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/signup",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"dev.abir.07@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"full_name\": \"John Doe\",\r\n    \"bio\": \"Software developer\",\r\n    \"avatar_url\": \"https://example.com/avatar.jpg\",\r\n    \"role\": \"customer\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/signup",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Mon, 09 Mar 2026 09:41:55 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "100"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\n    \"email\": \"dev.abir.07@gmail.com\",\n    \"role\": \"customer\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "verify user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n   \"code\":\"grxT\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/verify-user",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "verify-user"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n   \"code\":\"grxT\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/verify-user",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "verify-user"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Mon, 09 Mar 2026 09:42:30 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "68"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\n    \"role\": \"customer\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "user login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/login",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/login",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 11 Mar 2026 08:03:37 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "651"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\n    \"role\": \"customer\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczMjE2MjE3LCJleHAiOjE3NzM0NzU0MTd9.p0whE5LjVBDGdm8tpRTFM2y-GQkX80czG__plKulliM\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczMjE2MjE3LCJleHAiOjE3NzQwODAyMTd9.sQA8GAaQO07snuI5l92G0uTxftEr6Os6KHn92uGBR_A\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "resend code",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/resend-code",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "resend-code"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forgot password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\":\"dev.abir.07@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/forgot-password",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "forgot password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"email\":\"dev.abir.07@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/forgot-password",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 12 Mar 2026 07:21:13 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "88"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password reset email sent\",\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "verify reset",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"code\": \"Mcub\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/verify-password-reset",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "verify-password-reset"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "verify reset",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"user_id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"code\": \"Mcub\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/verify-password-reset",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "verify-password-reset"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Thu, 12 Mar 2026 08:59:57 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "374"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password reset successfully\",\n    \"user_id\": \"7e11b041-9e56-497d-a5a8-d50624d13d1a\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczMzA1OTk4LCJleHAiOjE3NzM1NjUxOTh9.3-zcxPzyLxSQeI5yhbesNZ2tdTqfJcF9YV9hn88wLaY\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "reset password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"password\":\"123456\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQzOTc5LCJleHAiOjE3NzM4MDMxNzl9.YEdzquNMAzd1zZ2SUSGEc6R8jx49Ux21DlZjZ50erZw\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/reset-password",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"password\":\"123456\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQzOTc5LCJleHAiOjE3NzM4MDMxNzl9.YEdzquNMAzd1zZ2SUSGEc6R8jx49Ux21DlZjZ50erZw\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/reset-password",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "reset-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 15 Mar 2026 03:06:38 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "41"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password reset successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "update profile",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{local}}/auth/update-profile",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "update-profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "avatar",
+                      "type": "file",
+                      "uuid": "d2bc7b2c-d9df-4cdb-ae3f-c8c10c0220ea",
+                      "src": "/C:/Users/Abir-007/Desktop/car break.jpg"
+                    },
+                    {
+                      "key": "full_name",
+                      "value": "Kung Fu",
+                      "type": "text",
+                      "uuid": "f6825a76-d2fe-4e56-af9f-4975efd2d149"
+                    },
+                    {
+                      "key": "bio",
+                      "value": "my bio",
+                      "type": "text",
+                      "uuid": "2df13fc0-67b6-4fff-9a49-308a728bbb74"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{local}}/auth/update-profile",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "update-profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 15 Mar 2026 02:57:05 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "42"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Profile updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "change password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQyMjI5LCJleHAiOjE3NzM4MDE0Mjl9.9PgBiiMG90ertTEB0AsI6NT1F1gwL8TbynjE7zbPetA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"new_password\":\"123456\",\r\n    \"old_password\":\"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/auth/update-password",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "update-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"new_password\":\"123456\",\r\n    \"old_password\":\"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/auth/update-password",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "update-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 15 Mar 2026 03:00:21 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "43"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "new access token",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQyMjI5LCJleHAiOjE3NzM4MDE0Mjl9.9PgBiiMG90ertTEB0AsI6NT1F1gwL8TbynjE7zbPetA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"password\":\"123456\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQzOTc5LCJleHAiOjE3NzM4MDMxNzl9.YEdzquNMAzd1zZ2SUSGEc6R8jx49Ux21DlZjZ50erZw\"\r\n}"
+            },
+            "url": {
+              "raw": "{{local}}/auth/new-token",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "auth",
+                "new-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"user_id\":\"84b0734f-2f97-4c81-a536-9e2421108683\",\r\n    \"password\":\"123456\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQzOTc5LCJleHAiOjE3NzM4MDMxNzl9.YEdzquNMAzd1zZ2SUSGEc6R8jx49Ux21DlZjZ50erZw\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{local}}/auth/new-token",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "new-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 15 Mar 2026 03:25:54 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "292"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczNTQ1MTU0LCJleHAiOjE3NzM4MDQzNTR9.725SWwYwOWgbueUZn1dwQcs75W7oQpLkKfrdstLPZ3o\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "get me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczMjE2OTA3LCJleHAiOjE3NzM0NzYxMDd9.XAGhl4gONsBXwFQA8U3x5KWO2dHxg0X4tNKqJX_qs2A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/user/me",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/user/me",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "user",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 11 Mar 2026 09:07:13 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "220"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\n    \"email\": \"dev.abir.07@gmail.com\",\n    \"role\": \"customer\",\n    \"is_active\": true,\n    \"profile\": {\n        \"full_name\": \"John Doe\",\n        \"bio\": \"Software developer\",\n        \"avatar_url\": \"https://example.com/avatar.jpg\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get user details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODRiMDczNGYtMmY5Ny00YzgxLWE1MzYtOWUyNDIxMTA4NjgzIiwidXNlcl9yb2xlIjoiY3VzdG9tZXIiLCJ1c2VyX2VtYWlsIjoiZGV2LmFiaXIuMDdAZ21haWwuY29tIiwiaWF0IjoxNzczMjIwNzM2LCJleHAiOjE3NzM0Nzk5MzZ9.4Ehnek4SxQWoaF-QBE-UFq4PowKgv4w8kr1joGBeaR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/user/84b0734f-2f97-4c81-a536-9e2421108683",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "user",
+                "84b0734f-2f97-4c81-a536-9e2421108683"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"user_email\":\"dev.abir.07@gmail.com\",\r\n   \"password\":\"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{local}}/user/me",
+                  "host": [
+                    "{{local}}"
+                  ],
+                  "path": [
+                    "user",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Wed, 11 Mar 2026 09:07:13 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "220"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": \"84b0734f-2f97-4c81-a536-9e2421108683\",\n    \"email\": \"dev.abir.07@gmail.com\",\n    \"role\": \"customer\",\n    \"is_active\": true,\n    \"profile\": {\n        \"full_name\": \"John Doe\",\n        \"bio\": \"Software developer\",\n        \"avatar_url\": \"https://example.com/avatar.jpg\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "local",
+      "value": ""
+    },
+    {
+      "key": "ai-local",
+      "value": ""
+    }
+  ]
+}
