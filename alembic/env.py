@@ -6,10 +6,16 @@ from sqlalchemy import pool
 from alembic import context
 from app.database.models.base import BaseModel 
 from app.database import models
+from app.core.config import settings
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+# Overwrite the sqlalchemy.url with the one from our settings
+# Alembic usually needs a sync driver, so we strip +asyncpg if present
+database_url = settings.DATABASE_URL.replace("+asyncpg", "")
+config.set_main_option("sqlalchemy.url", database_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

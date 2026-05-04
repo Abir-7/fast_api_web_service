@@ -290,15 +290,13 @@ class AuthService:
         await self.db.commit()
 
     async def update_profile(
-    self,
-
-    user_id: str,
-    full_name: str,
-    bio: str,
-    avatar: UploadFile ,
-) -> None:
-        print(user_id)
-    # Fetch profile first before doing any I/O side effects
+        self,
+        user_id: str,
+        full_name: str | None = None,
+        bio: str | None = None,
+        avatar: UploadFile | None = None,
+    ) -> None:
+        # Fetch profile first before doing any I/O side effects
         result = await self.db.execute(
             select(UserProfile).where(UserProfile.user_id == user_id)
         )
@@ -308,20 +306,20 @@ class AuthService:
 
         # Only upload avatar if provided, avoiding unnecessary I/O
         old_avatar = profile.avatar_url
+        new_avatar_url = None
         if avatar is not None:
             new_avatar_url = await save_upload_file(avatar)
-            profile.avatar_url =  new_avatar_url
-        
-       
+            profile.avatar_url = new_avatar_url
 
-        profile.full_name = full_name
-        profile.bio = bio
+        if full_name is not None:
+            profile.full_name = full_name
+        if bio is not None:
+            profile.bio = bio
 
         await self.db.commit()
+
         if old_avatar and new_avatar_url:
-            print(delete_file(
-                old_avatar
-            ))
+            delete_file(old_avatar)
     
     async def new_access_token(self, user_id: str)->str:
         result = await self.db.execute(select(User).filter(User.id == user_id))

@@ -8,7 +8,7 @@ class UserService:
     def __init__(self, db:AsyncSession):
         self.db=db
     
-    async def get_user_profile(self, user_id: str) -> User:
+    async def get_user_profile(self, user_id: str) -> UserWithProfileResponse:
         result = await self.db.execute(select(User).options(selectinload(User.profile)).where(User.id == user_id))
         user = result.scalar_one_or_none()
         if not user:
@@ -16,4 +16,4 @@ class UserService:
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="User not found"
             )
-        return UserWithProfileResponse.model_validate(user.profile)
+        return UserWithProfileResponse.model_validate(user)
